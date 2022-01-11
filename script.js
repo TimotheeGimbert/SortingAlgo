@@ -10,8 +10,9 @@ try {
   console.error(error.message);
 }
 
-data = data.split(' ');
-const dataInt = data.map(element => parseInt(element));
+data = data
+  .split(' ')
+  .map(element => parseInt(element));
 console.log(data);
 
 const bubbleSort = (numbers) => {
@@ -27,4 +28,4 @@ const bubbleSort = (numbers) => {
   return numbers;
 }
 
-console.log(bubbleSort(dataInt));
+console.log(bubbleSort(data));

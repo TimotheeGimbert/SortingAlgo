@@ -18,43 +18,67 @@ data = data
 
 //////////////////////// BUBBLE SORTING ALGO
 const bubbleSort = (numbers) => {
-  let bubbleCounter = 0;
+  let counter = 0;
   for (let i = 0; i < numbers.length; i++) {
     for (let k = 1; k < numbers.length; k++) {
+      counter++;
       if (numbers[k] < numbers[k-1]) {
         let kTemp = numbers[k];
         numbers[k] = numbers[k-1];
         numbers[k-1] = kTemp;
-        bubbleCounter++;
       }
     }
   }
-  return [numbers, bubbleCounter];
+  return [numbers, counter];
 }
 
 dataInput = data.slice();
 console.log(dataInput);
 const bubbleSortingResults = bubbleSort(dataInput);
-console.log(`Bubble Sorting Algo (${bubbleSortingResults[1]} operations) : ` + bubbleSortingResults[0]);
+console.log(`Bubble Sorting Algo (${bubbleSortingResults[1]} iterations) : ` + bubbleSortingResults[0]);
 
 
 //////////////////////// INSERTION SORTING ALGO
 const insertionSort = (numbers) => {
-  let insertionCounter = 0;
+  let counter = 0;
   for (let i = 1; i < numbers.length; i++) {
     let temp = numbers[i];
     for (let k = i-1; k >= 0; k--) {
+      counter++;
       if (numbers[k] > temp) {
         numbers[k+1] = numbers[k];
-        numbers[k] = temp;
-        insertionCounter++;
+        numbers[k] = temp;  
       }
     }
   }
-  return [numbers, insertionCounter];
+  return [numbers, counter];
 }
 
 dataInput = data.slice();
 console.log(dataInput);
 const insertionSortingResults = insertionSort(dataInput);
-console.log(`Insertion Sorting Algo (${insertionSortingResults[1]} operations) : ` + insertionSortingResults[0]);
+console.log(`Insertion Sorting Algo (${insertionSortingResults[1]} iterations) : ` + insertionSortingResults[0]);
+
+
+//////////////////////// SELECTION SORTING ALGO
+const selectionSort = (numbers) => {
+  let counter = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    for (let k = i+1; k < numbers.length; k++) { 
+      counter++;
+      if (numbers[k] < numbers[i]) {
+        const currentItem = numbers[i];
+        const currentMinimum = numbers[k];
+        numbers[k] = currentItem;
+        numbers[i] = currentMinimum;
+        console.log(numbers);
+      }
+    }
+  }
+  return [numbers, counter];
+}
+
+dataInput = data.slice();
+console.log(dataInput);
+const selectionSortingResults = selectionSort(dataInput);
+console.log(`Selection Sorting Algo (${selectionSortingResults[1]} iterations) : ` + selectionSortingResults[0]);

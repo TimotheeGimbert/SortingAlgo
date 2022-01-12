@@ -1,3 +1,4 @@
+//////////////////////// INPUT DATA MANAGEMENT
 const fs = require('fs');
 // console.log(process.argv);
 const fileName = process.argv[2];
@@ -15,6 +16,8 @@ data = data
   .map(element => parseInt(element));
 console.log(data);
 
+
+//////////////////////// BUBBLE SORTING ALGO
 const bubbleSort = (numbers) => {
   let bubbleCounter = 0;
   for (let i = 0; i < numbers.length; i++) {
@@ -32,3 +35,6 @@ const bubbleSort = (numbers) => {
 
 const bubbleSortingResults = bubbleSort(data);
 console.log(`Bubble Sorting Algo (${bubbleSortingResults[1]} operations) : ` + bubbleSortingResults[0]);
+
+
+//////////////////////// INSERTION SORTING ALGO

@@ -4,6 +4,7 @@ const fs = require('fs');
 const fileName = process.argv[2];
 
 let data = [];
+let dataInput = [];
 try {
   data = fs.readFileSync(fileName, 'utf8');
   console.log(data);
@@ -14,8 +15,6 @@ try {
 data = data
   .split(' ')
   .map(element => parseInt(element));
-console.log(data);
-
 
 //////////////////////// BUBBLE SORTING ALGO
 const bubbleSort = (numbers) => {
@@ -33,8 +32,29 @@ const bubbleSort = (numbers) => {
   return [numbers, bubbleCounter];
 }
 
-const bubbleSortingResults = bubbleSort(data);
+dataInput = data.slice();
+console.log(dataInput);
+const bubbleSortingResults = bubbleSort(dataInput);
 console.log(`Bubble Sorting Algo (${bubbleSortingResults[1]} operations) : ` + bubbleSortingResults[0]);
 
 
 //////////////////////// INSERTION SORTING ALGO
+const insertionSort = (numbers) => {
+  let insertionCounter = 0;
+  for (let i = 1; i < numbers.length; i++) {
+    let temp = numbers[i];
+    for (let k = i-1; k >= 0; k--) {
+      if (numbers[k] > temp) {
+        numbers[k+1] = numbers[k];
+        numbers[k] = temp;
+        insertionCounter++;
+      }
+    }
+  }
+  return [numbers, insertionCounter];
+}
+
+dataInput = data.slice();
+console.log(dataInput);
+const insertionSortingResults = insertionSort(dataInput);
+console.log(`Insertion Sorting Algo (${insertionSortingResults[1]} operations) : ` + insertionSortingResults[0]);
